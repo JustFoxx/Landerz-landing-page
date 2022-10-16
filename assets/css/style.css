@@ -213,9 +213,11 @@ header {
     color: var(--color-link);
 }
 .navbar {
+    z-index: 10000;
     padding: 0 10px;
     flex-wrap: wrap;
     display: flex;
+    transition: .3s ease;
     align-items: center;
     justify-content: center;
 }
@@ -231,6 +233,47 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+.underline {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #a79052;
+}
+.mobile-menu {
+    left: 0;
+    background:  #232325d5;;
+    color: var(--color-general-dark);
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+
+    transition: .3s ease;
+    transform: translateX(-100%);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.mobile-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+.mobile-menu ul a {
+    font-size: var(--font-size-medium);
+    padding-bottom: 20px;
+    color: var(--color-general-dark);
+}
+.mobile-menu-content {
+    padding: 1em;
+
+}
+.mobile-menu .dmode-toggle {
+    padding-top: 20px;
 }
 .dmode-toggle::after {
     position: absolute;
@@ -269,12 +312,14 @@ header {
     color: var(--color-onhover);
 } 
 .hamburger {
+    z-index: 10000;
     cursor: pointer;
     position: relative;
     display: none;
 }
 .hamburger span {
     position: relative;
+    z-index: 10000;
     display: block;
     margin-bottom: 5px;
     height: 4px;
@@ -366,14 +411,23 @@ header {
 		0px 7px 8px -4px hsla(0,0%,0%,0.2);
 }
 .features-bx-ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     width: 40px;
     height: 40px;
     position: relative;
     border-radius: 50%;
-    display: inline-block;
     background-color: #000;
     -webkit-box-shadow: 0 4px 20px -5px rgba(35, 36, 37, 0.4);
     box-shadow: 0 4px 20px -5px rgba(29, 29, 31, 0.4);
+}
+.features-bx-ico i {
+    color: var(--color-a-dark);
+}
+.features-bx:hover .features-bx-ico i {
+    color: var(--color-bg-dark);
 }
 .features-bx-name {
     margin: 10% 0;
@@ -742,15 +796,19 @@ header {
         display: none;
     }
     .navbar {
-        position: relative;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
         justify-content: space-between;
         width: 100%;
-        z-index: 2;
-        padding: 30px 40px;
+        padding: 20px 20px;
+        background: var(--color-bg-dark);
     }
     .navbar .logo {
         display: block;
         font-size: var(--font-size-small);
+        color: var(--color-general-dark)
     }
     .navbar .dot-span {
         display: none;
@@ -759,8 +817,13 @@ header {
         display: none;
     }
     .navbar .hamburger {
+        z-index: 9999;
         margin-top: 10px;
         display: block;
+    }
+    .navbar .hamburger span {
+        background: var(--color-general-dark);
+        z-index: 9999;
     }
     .header-container {
         position: relative;
