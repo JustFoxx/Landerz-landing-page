@@ -10,7 +10,6 @@
 
     $('.close-menu').on('click', () => {
         $('.mobile-menu').toggleClass('active')
+        $('.hamburger').removeClass('active')
     })
-    $('.dmode-toggle').on('click', () => {
-        $('.mobile-menu').toggleClass('active')
-    })
+    
