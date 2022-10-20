@@ -118,13 +118,10 @@ html, body {
     opacity: 90%;
     color: var(--color-general-dark);
 }
-.darkmode {
-    border: solid 1px var(--color-p-testimonianls-light);
-}
 .darkmode input,
 .darkmode .input,
 .darkmode #input {
-    border: var(--input-border-dark);
+    border: solid 1px var(--color-p-testimonianls-dark);
 }
 
 a {
